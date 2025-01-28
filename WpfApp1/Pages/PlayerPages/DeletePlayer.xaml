@@ -1,0 +1,46 @@
+﻿<Page x:Class="WpfApp1.Pages.PlayerPages.DeletePlayer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages.PlayerPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DeletePlayer">
+
+    <Grid Background="White">
+        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,376,0,0" VerticalAlignment="Top" Width="289" Height="36" Click="PlayerAdd"/>
+        <Rectangle HorizontalAlignment="Center" Height="290" Margin="0,48,0,0" Stroke="Black" VerticalAlignment="Top" Width="560" Fill="Black" RadiusX="23.019" RadiusY="23.019"/>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Height="34" Stroke="White" VerticalAlignment="Top" Width="420" Fill="White" RadiusX="12.796" RadiusY="12.796" Margin="0,8,0,0"/>
+                <TextBox x:Name="passwordBox" HorizontalAlignment="Center" Margin="0,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="400" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+            </Grid>
+        </Border>
+        <Border HorizontalAlignment="Center" Height="33" VerticalAlignment="Top" Width="420" Margin="0,104,0,0">
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Height="33" Stroke="White" VerticalAlignment="Center" Width="420" Fill="White" RadiusX="12.796" RadiusY="12.796"/>
+                <TextBox x:Name="nameBox" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+            </Grid>
+        </Border>
+        <Border HorizontalAlignment="Center" Height="33" Margin="0,160,0,0" VerticalAlignment="Top" Width="420">
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Height="33" Stroke="White" VerticalAlignment="Center" Width="420" Fill="White" RadiusX="12.796" RadiusY="12.796"/>
+                <TextBox x:Name="loginBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="400" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+            </Grid>
+        </Border>
+        <Border HorizontalAlignment="Center" Height="33" Margin="0,270,0,0" VerticalAlignment="Top" Width="420">
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Height="33" Stroke="White" VerticalAlignment="Center" Width="420" Fill="White" RadiusX="12.796" RadiusY="12.796"/>
+                <TextBox x:Name="ageBox" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+
+            </Grid>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="190,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Foreground="White"><Run Language="ru-ru" Text="Введите пароль"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="190,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Foreground="White" Text="Введите логин"/>
+        <TextBlock HorizontalAlignment="Left" Margin="190,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Foreground="White"><Run Language="ru-ru" Text="В"/><Run Text="ведите имя"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="190,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Foreground="White"><Run Language="ru-ru" Text="Введите возраст"/></TextBlock>
+        <ComboBox x:Name="CountrySelectComboBox" HorizontalAlignment="Left" Margin="301,308,0,0" VerticalAlignment="Top" Width="120" IsSynchronizedWithCurrentItem="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="190,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Foreground="White"><Run Text="Выберите страну "/><Run Language="ru-ru" Text="проживания:"/></TextBlock>
+    </Grid>
+</Page>
