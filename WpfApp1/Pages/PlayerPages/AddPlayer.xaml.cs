@@ -39,7 +39,7 @@ namespace WpfApp1.Pages.PlayerPages
             CountrySelectComboBox.DisplayMemberPath = "CountryName";
         }
 
-        private void PlayerAdd(object sender, RoutedEventArgs e)
+        private void ButtonPlayerAdd(object sender, RoutedEventArgs e)
         {
             playerRepository.AddNewPlayerToDb(
             nameBox.Text,
@@ -52,7 +52,7 @@ namespace WpfApp1.Pages.PlayerPages
             var playercount = dbConnection.Countries.Where(x => x.Id == countryID2).First().PlayerCount;
             ////_context.Country.First().PlayerCount++;
             var countryID = dbConnection.Countries.FirstOrDefault(p => p.Id == countryID2);
-
+            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
             if (countryID != null)
             {
                 dbConnection.Countries.First().PlayerCount += 1;

@@ -52,6 +52,7 @@ namespace WpfApp1.Pages.PlayerPages
                 int.Parse(TextBoxAge.Text),
                 ((Country)(ComboBoxPlayerCountry).SelectedItem).Id
             );
+            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            Mainframe.Content = new Mainpage();
+            Mainframe.Content = new MainPage();
         }
     }
 }

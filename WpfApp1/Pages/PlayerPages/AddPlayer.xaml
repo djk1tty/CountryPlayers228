@@ -9,7 +9,7 @@
       Title="AddPlayer">
 
     <Grid Background="White">
-        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,376,0,0" VerticalAlignment="Top" Width="289" Height="36" Click="PlayerAdd"/>
+        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,376,0,0" VerticalAlignment="Top" Width="289" Height="36" Click="ButtonPlayerAdd"/>
         <Rectangle HorizontalAlignment="Center" Height="290" Margin="0,48,0,0" Stroke="Black" VerticalAlignment="Top" Width="560" Fill="Black" RadiusX="23.019" RadiusY="23.019"/>
         <Border HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid>

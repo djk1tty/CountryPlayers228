@@ -28,7 +28,7 @@ namespace WpfApp1.Pages.CountryPages
             countriesRepository = new CountriesRepositories();
         }
 
-        private void ButtonDelete(object sender, RoutedEventArgs e)
+        private void ButtonDeleteCountry(object sender, RoutedEventArgs e)
         {
             countriesRepository.RemoveCountryFromDb(TextBoxDeleteCountry.Text);
         }
