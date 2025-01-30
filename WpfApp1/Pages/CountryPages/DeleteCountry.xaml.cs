@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Repositories;
 
 namespace WpfApp1.Pages.CountryPages
 {
@@ -20,9 +21,16 @@ namespace WpfApp1.Pages.CountryPages
     /// </summary>
     public partial class DeleteCountry : Page
     {
+        CountriesRepositories countriesRepository;
         public DeleteCountry()
         {
             InitializeComponent();
+            countriesRepository = new CountriesRepositories();
+        }
+
+        private void ButtonDelete(object sender, RoutedEventArgs e)
+        {
+            countriesRepository.RemoveCountryFromDb(TextBoxDeleteCountry.Text);
         }
     }
 }

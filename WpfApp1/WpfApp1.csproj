@@ -76,9 +76,6 @@
     <Compile Include="Pages\CountryPages\DeleteCountry.xaml.cs">
       <DependentUpon>DeleteCountry.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CountryPages\ShowCountries.xaml.cs">
-      <DependentUpon>ShowCountries.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -142,10 +139,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CountryPages\DeleteCountry.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\CountryPages\ShowCountries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

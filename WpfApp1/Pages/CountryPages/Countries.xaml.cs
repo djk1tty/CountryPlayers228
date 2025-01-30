@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Pages.PlayerPages;
+using WpfApp1.PlayersModel;
 
 namespace WpfApp1.Pages.CountryPages
 {
@@ -20,9 +22,25 @@ namespace WpfApp1.Pages.CountryPages
     /// </summary>
     public partial class Countries : Page
     {
+        private PlayersEntities DbConnection;
         public Countries()
         {
             InitializeComponent();
+            FillGridCountryInformation();
         }
+        public void FillGridCountryInformation()
+        {
+            this.GridCountryInfromation.ItemsSource = DbConnection.Countries.ToList();
+        }
+        private void ButtonAddCountries(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddCountry());
+        }
+
+        private void ButtonDeleteCountries(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteCountry());
+        }
+
     }
 }

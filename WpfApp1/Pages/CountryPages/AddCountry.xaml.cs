@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.PlayersModel;
+using WpfApp1.Repositories;
 
 namespace WpfApp1.Pages.CountryPages
 {
@@ -20,9 +22,22 @@ namespace WpfApp1.Pages.CountryPages
     /// </summary>
     public partial class AddCountry : Page
     {
+        private PlayersRepositories playerRepository;
+        private CountriesRepositories countriesRepository;
+        private PlayersEntities dbConnection;
+
         public AddCountry()
         {
             InitializeComponent();
+            countriesRepository = new CountriesRepositories();
+            dbConnection = new PlayersEntities();
+
+        }
+
+        private void ButtonAddCountry(object sender, RoutedEventArgs e)
+        {
+            countriesRepository.AddNewCountryToDb(
+                TextBoxAddCountry.Text);
         }
     }
 }

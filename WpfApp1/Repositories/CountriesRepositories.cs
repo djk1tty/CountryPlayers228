@@ -33,10 +33,10 @@ namespace WpfApp1.Repositories
                 dbConnection.SaveChanges();
             }
 
-            public void RemoveCountryFromDb(int id)
+            public void RemoveCountryFromDb(string name)
             {
-                var countries = dbConnection.Countries.Where(ks => ks.Id == id).ToList();
-                var country = dbConnection.Countries.Find(id);
+                var countries = dbConnection.Countries.Where(ks => ks.CountryName == name).ToList();
+                var country = dbConnection.Countries.Find(name);
 
 
                 if (countries.Any())
