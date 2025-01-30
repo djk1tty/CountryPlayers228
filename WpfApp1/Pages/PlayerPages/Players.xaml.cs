@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.PlayersModel;
 
 namespace WpfApp1.Pages.PlayerPages
 {
@@ -20,28 +21,29 @@ namespace WpfApp1.Pages.PlayerPages
     /// </summary>
     public partial class Players : Page
     {
+        private PlayersEntities DbConnection;
         public Players()
         {
             InitializeComponent();
+            FillGridPlayerInformation();
         }
-        private void AddPlayers(object sender, RoutedEventArgs e)
+        public void FillGridPlayerInformation()
+        {
+            this.GridPlayerInfromation.ItemsSource = DbConnection.Players.ToList();
+        }
+        private void ButtonAddPlayers(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPlayer());
         }
 
-        private void DeletePlayers(object sender, RoutedEventArgs e)
+        private void ButtonDeletePlayers(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new DeletePlayer());
         }
 
-        private void UpdatePlayers(object sender, RoutedEventArgs e)
+        private void ButtonUpdatePlayers(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UpdatePlayer());
-        }
-
-        private void ShowPlayers(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ShowPlayers());
         }
     }
 }

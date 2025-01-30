@@ -9,9 +9,25 @@
       Title="Players">
 
     <Grid Background="White">
-        <Button Content="Добавить игроков" HorizontalAlignment="Left" Margin="50,51,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="AddPlayers"/>
-        <Button Content="Удалить игроков" HorizontalAlignment="Left" Margin="525,51,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="DeletePlayers"/>
-        <Button Content="Изменить игроков" HorizontalAlignment="Left" Margin="50,310,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="UpdatePlayers"/>
-        <Button Content="Показать всех игроков" HorizontalAlignment="Left" Margin="525,310,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="ShowPlayers"/>
+        <DataGrid Name="GridPlayerInfromation" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,0,10,60">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding CountryName}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Изменить игроков" Click="ButtonUpdatePlayers"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить игроков" HorizontalAlignment="Left" Margin="118,427,0,0" VerticalAlignment="Top" Height="23" Width="79" Click="ButtonAddPlayers"/>
+        <Button Content="Удалить игроков" HorizontalAlignment="Left" Margin="631,417,0,0" VerticalAlignment="Top" Height="23" Width="75" Click="ButtonDeletePlayers"/>
+        <Button Content="Изменить игроков" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" Height="23" Width="66" Click="UpdatePlayers"/>
     </Grid>
 </Page>

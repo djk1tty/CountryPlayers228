@@ -24,7 +24,7 @@ namespace WpfApp1.Repositories
             return dbConnection.Players.ToList();
         }
 
-        public void AddNewPlayerToDb(string login, string password, string name, int age, int countryID)
+        public void AddNewPlayerToDb(string login, string password, string name, int age, long countryID)
         {
             var player = new Player()
             {
@@ -39,23 +39,25 @@ namespace WpfApp1.Repositories
             dbConnection.SaveChanges();
         }
 
-        public void DeletePlayerFromDb(int id)
+        public void DeletePlayerFromDb(string login)
         {
             try
             {
-                var players = dbConnection.Players.Where(ks => ks.Id == id).ToList();
-                var player = dbConnection.Players.Find(id);
+                var players = dbConnection.Players.Where(ks => ks.Login == login).ToList();
+                var player = dbConnection.Players.Find(login);
                 dbConnection.Players.Remove(player);
                 dbConnection.SaveChanges();
             }
-            
+            catch (Exception ex)
+            {
+                throw new Exception("Ошибка, не удалось удалить игрока из базы данных.");
+            }
         }
         public void UpdatePlayerInDb(string name, string password,  int age, long countryID)
         {
             var player = new Player()
             {
                 Name = name,
-                Login = login,
                 Password = password,
                 CountryId = countryID,
                 Age = age,
