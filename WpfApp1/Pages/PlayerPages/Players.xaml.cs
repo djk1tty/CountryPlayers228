@@ -22,15 +22,16 @@ namespace WpfApp1.Pages.PlayerPages
     public partial class Players : Page
     {
         private PlayersEntities dbConnect;
-        public void FillGridPlayerInformation()
-        {
-            this.GridPlayerInfromation.ItemsSource = dbConnect.Players.ToList();
-        }
         public Players()
         {
             InitializeComponent();
             FillGridPlayerInformation();
             EventPagesAggregator.GridPlayerInfromationDataUpdated += FillGridPlayerInformation;
+        }
+        public void FillGridPlayerInformation()
+        {
+            var data = Connect.conn.Players.ToList();
+            this.GridPlayerInfromation.ItemsSource = data;
         }
         private void ButtonAddPlayers(object sender, RoutedEventArgs e)
         {

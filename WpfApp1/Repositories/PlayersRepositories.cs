@@ -19,6 +19,7 @@ namespace WpfApp1.Repositories
         {
             dbConnection = DbConnect.DbConnection;
         }
+
         public List<Player> GetAllPlayers()
         {
             return dbConnection.Players.ToList();
@@ -39,12 +40,12 @@ namespace WpfApp1.Repositories
             dbConnection.SaveChanges();
         }
 
-        public void DeletePlayerFromDb(string login)
+        public void DeletePlayerFromDb(long id)
         {
             try
             {
-                var players = dbConnection.Players.Where(ks => ks.Login == login).ToList();
-                var player = dbConnection.Players.Find(login);
+                var players = dbConnection.Players.Where(ks => ks.Id == id).ToList();
+                var player = dbConnection.Players.Find(id);
                 dbConnection.Players.Remove(player);
                 dbConnection.SaveChanges();
             }

@@ -16,7 +16,7 @@
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Страна" Binding="{Binding CountryName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding CountryId}"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -26,7 +26,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить игроков" HorizontalAlignment="Left" Margin="118,427,0,0" VerticalAlignment="Top" Height="23" Width="79" Click="ButtonAddPlayers"/>
-        <Button Content="Удалить игроков" HorizontalAlignment="Left" Margin="631,417,0,0" VerticalAlignment="Top" Height="23" Width="75" Click="ButtonDeletePlayers"/>
+        <Button Content="Добавить игроков" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="23" Width="123" Click="ButtonAddPlayers"/>
+        <Button Content="Удалить игроков" HorizontalAlignment="Left" Margin="662,395,0,0" VerticalAlignment="Top" Height="23" Width="128" Click="ButtonDeletePlayers"/>
     </Grid>
 </Page>

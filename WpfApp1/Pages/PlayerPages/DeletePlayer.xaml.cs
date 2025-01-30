@@ -30,7 +30,7 @@ namespace WpfApp1.Pages.PlayerPages
 
         private void ButtonDelete(object sender, RoutedEventArgs e)
         { 
-                playersRepository.DeletePlayerFromDb(TextBoxDeletePlayer.Text);
+                playersRepository.DeletePlayerFromDb(long.Parse(TextBoxDeletePlayer.Text));
                 EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
     }

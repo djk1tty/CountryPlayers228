@@ -38,6 +38,7 @@ namespace WpfApp1.Pages.CountryPages
         {
             countriesRepository.AddNewCountryToDb(
                 TextBoxAddCountry.Text);
+            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
     }
 }

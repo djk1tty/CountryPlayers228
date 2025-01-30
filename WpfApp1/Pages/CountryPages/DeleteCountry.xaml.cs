@@ -31,6 +31,7 @@ namespace WpfApp1.Pages.CountryPages
         private void ButtonDeleteCountry(object sender, RoutedEventArgs e)
         {
             countriesRepository.RemoveCountryFromDb(TextBoxDeleteCountry.Text);
+            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
     }
 }
