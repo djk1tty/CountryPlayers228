@@ -17,7 +17,7 @@ namespace WpfApp1.Repositories
 
         public PlayersRepositories()
         {
-            dbConnection = DbConnect.DbConnection;
+            dbConnection = Connect.DbConnection;
         }
 
         public List<Player> GetAllPlayers()

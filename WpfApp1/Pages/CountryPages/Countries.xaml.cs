@@ -31,7 +31,7 @@ namespace WpfApp1.Pages.CountryPages
         }
         public void FillGridCountryInformation()
         {
-            var data = Connect.conn.Countries.ToList();
+            var data = Connect.DbConnection.Countries.ToList();
             this.GridCountryInfromation.ItemsSource = data;
         }
         private void ButtonAddCountries(object sender, RoutedEventArgs e)

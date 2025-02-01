@@ -8,6 +8,6 @@ namespace WpfApp1.PlayersModel
 {
     static class Connect
     {
-        public static PlayersEntities conn = new PlayersEntities();
+        public static PlayersEntities DbConnection = new PlayersEntities();
     }
 }

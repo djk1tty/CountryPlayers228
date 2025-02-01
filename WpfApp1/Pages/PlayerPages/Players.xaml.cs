@@ -30,7 +30,7 @@ namespace WpfApp1.Pages.PlayerPages
         }
         public void FillGridPlayerInformation()
         {
-            var data = Connect.conn.Players.ToList();
+            var data = Connect.DbConnection.Players.ToList();
             this.GridPlayerInfromation.ItemsSource = data;
         }
         private void ButtonAddPlayers(object sender, RoutedEventArgs e)

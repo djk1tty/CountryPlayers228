@@ -14,7 +14,7 @@ namespace WpfApp1.Repositories
 
             public CountriesRepositories()
             {
-                dbConnection = DbConnect.DbConnection;
+                dbConnection = Connect.DbConnection;
             }
 
             public List<Country> GetAllCountries()

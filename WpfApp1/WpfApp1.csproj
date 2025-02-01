@@ -96,7 +96,6 @@
     <Compile Include="PlayersModel\Country.cs">
       <DependentUpon>PlayerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PlayersModel\DbConnect.cs" />
     <Compile Include="PlayersModel\Player.cs">
       <DependentUpon>PlayerModel.tt</DependentUpon>
     </Compile>
