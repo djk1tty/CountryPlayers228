@@ -9,12 +9,12 @@
       Title="UpdatePlayer">
 
     <Grid Background="White">
-        <ComboBox x:Name ="PlayerIdComboBox" HorizontalAlignment="Center" Height="36" Margin="0,326,0,0" VerticalAlignment="Top" Width="298" SelectionChanged="PlayerLoginComboBox_SelectionChanged"/>
         <TextBox x:Name="TextBoxPassword" HorizontalAlignment="Left" Height="30" Margin="40,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
         <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="30" Margin="40,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
         <TextBox x:Name="TextBoxAge" HorizontalAlignment="Left" Height="30" Margin="40,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
         <ComboBox x:Name="ComboBoxPlayerCountry" HorizontalAlignment="Left" Height="30" Margin="40,0,0,0" VerticalAlignment="Center" Width="139"/>
         <Button Content="Обновить" HorizontalAlignment="Left" Margin="251,0,0,0" Click ="ButtonUpdate" VerticalAlignment="Center" Width="126" Height="30"/>
+        <Button x:Name="GoBack" Content="ButtonGoBack" HorizontalAlignment="Left" Margin="60,330,0,0" VerticalAlignment="Top" Height="65" Width="160" Click="GoBack_Click"/>
 
     </Grid>
 </Page>

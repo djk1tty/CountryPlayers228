@@ -42,33 +42,21 @@ namespace WpfApp1.Repositories
 
         public void DeletePlayerFromDb(long id)
         {
-            try
-            {
-                var players = dbConnection.Players.Where(ks => ks.Id == id).ToList();
-                var player = dbConnection.Players.Find(id);
-                dbConnection.Players.Remove(player);
-                dbConnection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ошибка, не удалось удалить игрока из базы данных.");
-            }
+            var players = dbConnection.Players.Where(ks => ks.Id == id).ToList();
+            var player = dbConnection.Players.Find(id);
+            dbConnection.Players.Remove(player);
+            dbConnection.SaveChanges();
         }
-        public void UpdatePlayerInDb(long id, string newName, string newPassword,  int newAge, long countryID)
+        public void UpdatePlayerInDb(long id, string newName, string newPassword, int newAge, long countryID)
         {
             var player = dbConnection.Players.FirstOrDefault(p => p.Id == id);
-            try 
-            {
-                player.Name = newName;
-                player.Password = newPassword;
-                player.Age = newAge;
-                player.CountryId = countryID;
-                dbConnection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Игрока не существует");
-            }
+
+            player.Name = newName;
+            player.Password = newPassword;
+            player.Age = newAge;
+            player.CountryId = countryID;
+
+            dbConnection.SaveChanges();
         }
     }
 }

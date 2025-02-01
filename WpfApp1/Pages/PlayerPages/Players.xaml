@@ -16,7 +16,7 @@
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Страна" Binding="{Binding CountryId}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country.CountryName}"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

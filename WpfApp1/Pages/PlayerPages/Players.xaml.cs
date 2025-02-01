@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.PlayersModel;
+using WpfApp1.Repositories;
 
 namespace WpfApp1.Pages.PlayerPages
 {
@@ -21,17 +22,20 @@ namespace WpfApp1.Pages.PlayerPages
     /// </summary>
     public partial class Players : Page
     {
-        private PlayersEntities dbConnect;
+        private PlayersRepositories playersRepository;
         public Players()
         {
             InitializeComponent();
+
+            playersRepository  = new PlayersRepositories();
+
             FillGridPlayerInformation();
+
             EventPagesAggregator.GridPlayerInfromationDataUpdated += FillGridPlayerInformation;
         }
         public void FillGridPlayerInformation()
         {
-            var data = Connect.DbConnection.Players.ToList();
-            this.GridPlayerInfromation.ItemsSource = data;
+            this.GridPlayerInfromation.ItemsSource = playersRepository.GetAllPlayers();
         }
         private void ButtonAddPlayers(object sender, RoutedEventArgs e)
         {
@@ -40,11 +44,19 @@ namespace WpfApp1.Pages.PlayerPages
 
         private void ButtonDeletePlayers(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DeletePlayer());
+            DataStorage.CurrentPlayer = (Player)GridPlayerInfromation.SelectedItem;
+
+            playersRepository.DeletePlayerFromDb(DataStorage.CurrentPlayer.Id);
+
+            FillGridPlayerInformation();
+
+            DataStorage.CurrentPlayer = null;
         }
 
         private void ButtonUpdatePlayers(object sender, RoutedEventArgs e)
         {
+            DataStorage.CurrentPlayer = (Player)GridPlayerInfromation.SelectedItem;
+            
             NavigationService.Navigate(new UpdatePlayer());
         }
     }

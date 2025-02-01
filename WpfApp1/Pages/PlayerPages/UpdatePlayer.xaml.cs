@@ -31,29 +31,50 @@ namespace WpfApp1.Pages.PlayerPages
             playerRepositories = new PlayersRepositories();
             countriesRepositories = new CountriesRepositories();
 
-            PlayerIdComboBox.ItemsSource = playerRepositories.GetAllPlayers();
-            PlayerIdComboBox.DisplayMemberPath = "Id";
+            var countries = countriesRepositories.GetAllCountries();
 
-            ComboBoxPlayerCountry.ItemsSource = countriesRepositories.GetAllCountries();
+            ComboBoxPlayerCountry.ItemsSource = countries;
             ComboBoxPlayerCountry.DisplayMemberPath = "CountryName";
+            ComboBoxPlayerCountry.SelectedIndex = countries.FindIndex(item => item.Id == DataStorage.CurrentPlayer.CountryId);
+
+            TextBoxName.Text = DataStorage.CurrentPlayer.Name;
+            TextBoxPassword.Text = DataStorage.CurrentPlayer.Password;
+            TextBoxAge.Text = DataStorage.CurrentPlayer.Age.ToString();
         }
 
-        private void PlayerLoginComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            TextBoxName.Text = ((Player)PlayerIdComboBox.SelectedItem).Name;
-            TextBoxPassword.Text = ((Player)PlayerIdComboBox.SelectedItem).Password;
-            TextBoxAge.Text = ((Player)PlayerIdComboBox.SelectedItem).Age.ToString();
-        }
         private void ButtonUpdate(object sender, RoutedEventArgs e)
         {
-            playerRepositories.UpdatePlayerInDb(
-                ((Player)PlayerIdComboBox.SelectedItem).Id,
-                TextBoxName.Text,
-                TextBoxPassword.Text,
-                int.Parse(TextBoxAge.Text),
-                ((Country)(ComboBoxPlayerCountry).SelectedItem).Id
-            );
-            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
+            if(TextBoxName.Text.Length == 0)
+            {
+                MessageBox.Show("Ошибка. Длина имени не может быть 0");
+                return;
+            }
+
+            try
+            {
+                playerRepositories.UpdatePlayerInDb(
+                    DataStorage.CurrentPlayer.Id,
+                    TextBoxName.Text,
+                    TextBoxPassword.Text,
+                    int.Parse(TextBoxAge.Text),
+                    ((Country)(ComboBoxPlayerCountry).SelectedItem).Id
+                );
+
+                MessageBox.Show("Игрок успешно обновлён.");
+
+                EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
+
+                DataStorage.CurrentPlayer = null;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка обновления игрока.");
+            }
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

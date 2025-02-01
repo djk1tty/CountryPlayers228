@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.PlayersModel;
 using WpfApp1.Repositories;
 
 namespace WpfApp1.Pages.PlayerPages
@@ -29,9 +30,8 @@ namespace WpfApp1.Pages.PlayerPages
         }
 
         private void ButtonDelete(object sender, RoutedEventArgs e)
-        { 
-                playersRepository.DeletePlayerFromDb(long.Parse(TextBoxDeletePlayer.Text));
-                EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
+        {
+           
         }
     }
 }
