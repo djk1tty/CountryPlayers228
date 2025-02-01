@@ -52,7 +52,6 @@ namespace WpfApp1.Pages.PlayerPages
             var playercount = dbConnection.Countries.Where(x => x.Id == countryID2).First().PlayerCount;
             ////_context.Country.First().PlayerCount++;
             var countryID = dbConnection.Countries.FirstOrDefault(p => p.Id == countryID2);
-            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
             if (countryID != null)
             {
                 dbConnection.Countries.First().PlayerCount += 1;
@@ -65,6 +64,7 @@ namespace WpfApp1.Pages.PlayerPages
                 MessageBox.Show("Страна не найдена");
             }
             dbConnection.SaveChanges();
+            EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
     }
 }

@@ -31,8 +31,8 @@ namespace WpfApp1.Pages.PlayerPages
             playerRepositories = new PlayersRepositories();
             countriesRepositories = new CountriesRepositories();
 
-            PlayerLoginComboBox.ItemsSource = playerRepositories.GetAllPlayers();
-            PlayerLoginComboBox.DisplayMemberPath = "Login";
+            PlayerIdComboBox.ItemsSource = playerRepositories.GetAllPlayers();
+            PlayerIdComboBox.DisplayMemberPath = "Id";
 
             ComboBoxPlayerCountry.ItemsSource = countriesRepositories.GetAllCountries();
             ComboBoxPlayerCountry.DisplayMemberPath = "CountryName";
@@ -40,13 +40,14 @@ namespace WpfApp1.Pages.PlayerPages
 
         private void PlayerLoginComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TextBoxName.Text = ((Player)PlayerLoginComboBox.SelectedItem).Name;
-            TextBoxPassword.Text = ((Player)PlayerLoginComboBox.SelectedItem).Password;
-            TextBoxAge.Text = ((Player)PlayerLoginComboBox.SelectedItem).Age.ToString();
+            TextBoxName.Text = ((Player)PlayerIdComboBox.SelectedItem).Name;
+            TextBoxPassword.Text = ((Player)PlayerIdComboBox.SelectedItem).Password;
+            TextBoxAge.Text = ((Player)PlayerIdComboBox.SelectedItem).Age.ToString();
         }
         private void ButtonUpdate(object sender, RoutedEventArgs e)
         {
             playerRepositories.UpdatePlayerInDb(
+                ((Player)PlayerIdComboBox.SelectedItem).Id,
                 TextBoxName.Text,
                 TextBoxPassword.Text,
                 int.Parse(TextBoxAge.Text),

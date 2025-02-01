@@ -54,17 +54,21 @@ namespace WpfApp1.Repositories
                 throw new Exception("Ошибка, не удалось удалить игрока из базы данных.");
             }
         }
-        public void UpdatePlayerInDb(string name, string password,  int age, long countryID)
+        public void UpdatePlayerInDb(long id, string newName, string newPassword,  int newAge, long countryID)
         {
-            var player = new Player()
+            var player = dbConnection.Players.FirstOrDefault(p => p.Id == id);
+            try 
             {
-                Name = name,
-                Password = password,
-                CountryId = countryID,
-                Age = age,
-            };
-
-            dbConnection.SaveChanges();
+                player.Name = newName;
+                player.Password = newPassword;
+                player.Age = newAge;
+                player.CountryId = countryID;
+                dbConnection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Игрока не существует");
+            }
         }
     }
 }
