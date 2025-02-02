@@ -41,7 +41,12 @@ namespace WpfApp1.Pages.CountryPages
 
         private void ButtonDeleteCountries(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DeleteCountry());
+            DataStorage.CurrentCountry = (Country)GridCountryInfromation.SelectedItem;
+            countriesRepositories.DeleteCountryFromDb(DataStorage.CurrentCountry.Id);
+
+            FillGridPlayerInformation();
+
+            DataStorage.CurrentCountry = null;
         }
 
     }

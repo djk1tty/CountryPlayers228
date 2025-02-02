@@ -36,6 +36,11 @@ namespace WpfApp1.Pages.CountryPages
 
         private void ButtonAddCountry(object sender, RoutedEventArgs e)
         {
+            if (TextBoxAddCountry.Text.Length == 0)
+            {
+                MessageBox.Show("Ошибка.Длина названия страны не может быть 0")
+                return;
+            }
             countriesRepository.AddNewCountryToDb(
                 TextBoxAddCountry.Text);
             EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();

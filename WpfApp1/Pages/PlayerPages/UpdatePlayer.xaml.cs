@@ -50,6 +50,23 @@ namespace WpfApp1.Pages.PlayerPages
                 return;
             }
 
+            else if(TextBoxAge.Text.Length == 0)
+            {
+                MessageBox.Show("Ошибка. Длина возраста не может быть 0");
+                return;
+            }
+
+            else if(TextBoxPassword.Text.Length == 0)
+            {
+                MessageBox.Show("Ошибка. Длина пароля не может быть 0");
+                return;
+            }
+
+            else if(((Country)(ComboBoxPlayerCountry).SelectedItem = null))
+            {
+                MessageBox.Show("Ошибка. Выберите страну")
+                return;
+            }
             try
             {
                 playerRepositories.UpdatePlayerInDb(

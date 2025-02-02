@@ -45,7 +45,11 @@ namespace WpfApp1.Pages.PlayerPages
         private void ButtonDeletePlayers(object sender, RoutedEventArgs e)
         {
             DataStorage.CurrentPlayer = (Player)GridPlayerInfromation.SelectedItem;
-
+            if(DataStorage.CurrentPlayer == null)
+            {
+                MessageBox.Show("Ошибкаю Выберите игрока для удаления")
+                return;
+            }
             playersRepository.DeletePlayerFromDb(DataStorage.CurrentPlayer.Id);
 
             FillGridPlayerInformation();

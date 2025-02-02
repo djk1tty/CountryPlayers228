@@ -9,5 +9,7 @@ namespace WpfApp1.PlayersModel
     internal static class DataStorage
     {
         public static Player CurrentPlayer = null;
+
+        public static Country CurrentCountry = null;
     }
 }

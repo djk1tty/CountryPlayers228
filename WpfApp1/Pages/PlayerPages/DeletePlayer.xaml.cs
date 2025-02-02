@@ -28,10 +28,5 @@ namespace WpfApp1.Pages.PlayerPages
             InitializeComponent();
             playersRepository = new PlayersRepositories();
         }
-
-        private void ButtonDelete(object sender, RoutedEventArgs e)
-        {
-           
-        }
     }
 }
