@@ -42,5 +42,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="190,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Foreground="White"><Run Language="ru-ru" Text="Введите возраст"/></TextBlock>
         <ComboBox x:Name="CountrySelectComboBox" HorizontalAlignment="Left" Margin="301,308,0,0" VerticalAlignment="Top" Width="120" IsSynchronizedWithCurrentItem="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="190,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Foreground="White"><Run Text="Выберите страну "/><Run Language="ru-ru" Text="проживания:"/></TextBlock>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="517,311,0,0" VerticalAlignment="Top" Width="144" Height="24" Click="ButtonGoBack"/>
     </Grid>
 </Page>

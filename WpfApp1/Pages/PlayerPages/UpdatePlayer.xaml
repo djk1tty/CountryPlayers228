@@ -9,12 +9,16 @@
       Title="UpdatePlayer">
 
     <Grid Background="White">
-        <TextBox x:Name="TextBoxPassword" HorizontalAlignment="Left" Height="30" Margin="40,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="30" Margin="40,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="TextBoxPassword" HorizontalAlignment="Left" Height="30" Margin="40,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="30" Margin="40,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" TextChanged="TextBoxName_TextChanged"/>
         <TextBox x:Name="TextBoxAge" HorizontalAlignment="Left" Height="30" Margin="40,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
-        <ComboBox x:Name="ComboBoxPlayerCountry" HorizontalAlignment="Left" Height="30" Margin="40,0,0,0" VerticalAlignment="Center" Width="139"/>
+        <ComboBox x:Name="ComboBoxPlayerCountry" HorizontalAlignment="Left" Height="30" Margin="40,0,0,0" VerticalAlignment="Center" Width="180"/>
         <Button Content="Обновить" HorizontalAlignment="Left" Margin="251,0,0,0" Click ="ButtonUpdate" VerticalAlignment="Center" Width="126" Height="30"/>
-        <Button x:Name="GoBack" Content="ButtonGoBack" HorizontalAlignment="Left" Margin="60,330,0,0" VerticalAlignment="Top" Height="65" Width="160" Click="GoBack_Click"/>
+        <Button x:Name="GoBack" Content="Назад" HorizontalAlignment="Left" Margin="60,330,0,0" VerticalAlignment="Top" Height="65" Width="160" Click="GoBack_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,42,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="69"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,90,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" Width="69"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,141,0,0" TextWrapping="Wrap" Text="Возраст" VerticalAlignment="Top" Width="69"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,193,0,0" TextWrapping="Wrap" Text="Страна" VerticalAlignment="Top" Width="69"/>
 
     </Grid>
 </Page>

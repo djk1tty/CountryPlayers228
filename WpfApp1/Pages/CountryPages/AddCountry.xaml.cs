@@ -45,5 +45,10 @@ namespace WpfApp1.Pages.CountryPages
                 TextBoxAddCountry.Text);
             EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
+
+        private void ButtonGoBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

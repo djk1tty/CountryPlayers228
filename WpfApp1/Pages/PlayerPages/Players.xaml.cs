@@ -63,5 +63,10 @@ namespace WpfApp1.Pages.PlayerPages
             
             NavigationService.Navigate(new UpdatePlayer());
         }
+
+        private void ButtonGoBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

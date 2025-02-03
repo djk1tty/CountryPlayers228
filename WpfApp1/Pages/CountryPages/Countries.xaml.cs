@@ -60,5 +60,9 @@ namespace WpfApp1.Pages.CountryPages
             }
         }
 
+        private void ButtonGoBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

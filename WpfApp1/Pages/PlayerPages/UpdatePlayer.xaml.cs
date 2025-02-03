@@ -93,5 +93,7 @@ namespace WpfApp1.Pages.PlayerPages
         {
             NavigationService.GoBack();
         }
+
+        
     }
 }

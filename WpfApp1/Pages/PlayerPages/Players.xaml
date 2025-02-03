@@ -28,5 +28,6 @@
         </DataGrid>
         <Button Content="Добавить игроков" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="23" Width="123" Click="ButtonAddPlayers"/>
         <Button Content="Удалить игроков" HorizontalAlignment="Left" Margin="662,395,0,0" VerticalAlignment="Top" Height="23" Width="128" Click="ButtonDeletePlayers"/>
+        <Button Content="Назад" HorizontalAlignment="Center" Margin="0,395,0,0" VerticalAlignment="Top" Height="23" Width="124" Click="ButtonGoBack"/>
     </Grid>
 </Page>

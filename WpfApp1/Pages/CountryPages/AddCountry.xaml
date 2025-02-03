@@ -19,5 +19,6 @@
             </Grid>
         </Border>
         <TextBlock HorizontalAlignment="Left" Margin="190,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Foreground="White"><Run Language="ru-ru" Text="Введите название страны"/></TextBlock>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="471,300,0,0" VerticalAlignment="Top" Width="182" Height="26" Click="ButtonGoBack"/>
     </Grid>
 </Page>
