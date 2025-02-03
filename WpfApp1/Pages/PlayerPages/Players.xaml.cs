@@ -26,10 +26,10 @@ namespace WpfApp1.Pages.PlayerPages
         public Players()
         {
             InitializeComponent();
-            FillGridPlayerInformation();
-
             playersRepository  = new PlayersRepositories();
 
+
+            FillGridPlayerInformation();
             EventPagesAggregator.GridPlayerInfromationDataUpdated += FillGridPlayerInformation;
         }
         
