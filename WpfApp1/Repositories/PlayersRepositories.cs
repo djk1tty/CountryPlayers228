@@ -35,14 +35,12 @@ namespace WpfApp1.Repositories
                 CountryId = countryID,
                 Age = age,
             };
-
             dbConnection.Players.Add(player);
             dbConnection.SaveChanges();
         }
 
         public void DeletePlayerFromDb(long id)
         {
-            var players = dbConnection.Players.Where(ks => ks.Id == id).ToList();
             var player = dbConnection.Players.Find(id);
             dbConnection.Players.Remove(player);
             dbConnection.SaveChanges();

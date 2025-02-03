@@ -31,6 +31,7 @@ namespace WpfApp1.Pages.PlayerPages
         public AddPlayer()
         {
             InitializeComponent();
+            
             playerRepository = new PlayersRepositories();
             countriesRepository = new CountriesRepositories();
             dbConnection = new PlayersEntities();
@@ -68,32 +69,32 @@ namespace WpfApp1.Pages.PlayerPages
             if (CountrySelectComboBox.SelectedItem == null) 
             {
                 MessageBox.Show("Ошибка. Выберите страну проживания");
+                return;     
+            }
+
+            countryInDb.PlayerCount++;
+            dbConnection.Entry(countryInDb).State = EntityState.Modified;
+            var countryInDb = dbConnection.Countries.Find(CountrySelectComboBox.SelectedItem.Id);
+            if(countryInDb == null)
+            {
+                MessageBox.Show("Ошибка. Страна не выбрана.");
                 return;
             }
 
+            try
+            {
             playerRepository.AddNewPlayerToDb(
             nameBox.Text,
             loginBox.Text,
             passwordBox.Text,
             int.Parse(ageBox.Text),
             ((Country)CountrySelectComboBox.SelectedItem).Id);
-
-            long countryID2 = ((Country)CountrySelectComboBox.SelectedItem).Id;
-            var playercount = dbConnection.Countries.Where(x => x.Id == countryID2).First().PlayerCount;
-            ////_context.Country.First().PlayerCount++;
-            var countryID = dbConnection.Countries.FirstOrDefault(p => p.Id == countryID2);
-            if (countryID != null)
-            {
-                dbConnection.Countries.First().PlayerCount += 1;
-
-
-                dbConnection.SaveChanges();
+            MessageBox.Show("Игрок добавлен!");
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Страна не найдена");
+                MessageBox.Show("Ошибка добавления игрока в таблицу.");
             }
-            dbConnection.SaveChanges();
             EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
 

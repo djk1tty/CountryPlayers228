@@ -25,6 +25,7 @@ namespace WpfApp1.Pages.CountryPages
     {
         private PlayersEntities DbConnection;
         private CountriesRepositories CountriesRepositories;
+        
         public Countries()
         {
             InitializeComponent();
@@ -32,11 +33,13 @@ namespace WpfApp1.Pages.CountryPages
             EventPagesAggregator.GridPlayerInfromationDataUpdated += FillGridCountryInformation;
             CountriesRepositories = new CountriesRepositories();
         }
+
         public void FillGridCountryInformation()
         {
             var data = Connect.DbConnection.Countries.ToList();
             this.GridCountryInfromation.ItemsSource = data;
         }
+
         private void ButtonAddCountries(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddCountry());
@@ -51,12 +54,13 @@ namespace WpfApp1.Pages.CountryPages
             }
             else
             {
-                DataStorage.CurrentCountry = (Country)GridCountryInfromation.SelectedItem;
+               
                 CountriesRepositories.RemoveCountryFromDb(DataStorage.CurrentCountry.Id);
 
                 FillGridCountryInformation();
 
                 DataStorage.CurrentCountry = null;
+                MessageBox.Show("Страна успешно удалена!");
             }
         }
 

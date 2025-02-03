@@ -26,17 +26,18 @@ namespace WpfApp1.Pages.PlayerPages
         public Players()
         {
             InitializeComponent();
+            FillGridPlayerInformation();
 
             playersRepository  = new PlayersRepositories();
 
-            FillGridPlayerInformation();
-
             EventPagesAggregator.GridPlayerInfromationDataUpdated += FillGridPlayerInformation;
         }
+        
         public void FillGridPlayerInformation()
         {
             this.GridPlayerInfromation.ItemsSource = playersRepository.GetAllPlayers();
         }
+        
         private void ButtonAddPlayers(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPlayer());
@@ -47,11 +48,19 @@ namespace WpfApp1.Pages.PlayerPages
             DataStorage.CurrentPlayer = (Player)GridPlayerInfromation.SelectedItem;
             if(DataStorage.CurrentPlayer == null)
             {
-                MessageBox.Show("Ошибкаю Выберите игрока для удаления");
+                MessageBox.Show("Ошибка. Выберите игрока для удаления");
                 return;
             }
-            playersRepository.DeletePlayerFromDb(DataStorage.CurrentPlayer.Id);
-
+            try
+            {
+                
+                playersRepository.DeletePlayerFromDb(DataStorage.CurrentPlayer.Id);
+                MessageBox.Show("Игрок был удален");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ошибка. Игрок не был удален");
+            }
             FillGridPlayerInformation();
 
             DataStorage.CurrentPlayer = null;
