@@ -43,31 +43,31 @@ namespace WpfApp1.Pages.PlayerPages
         {
             if (nameBox.Text.Length == 0) 
             {
-                MessageBox.Show("Ошибка. Длина имени не может быть 0")
+                MessageBox.Show("Ошибка. Длина имени не может быть 0");
                 return;
             }
 
             if (loginBox.Text.Length == 0) 
             {
-                MessageBox.Show("Ошибка. Длина логина не может быть 0")
+                MessageBox.Show("Ошибка. Длина логина не может быть 0");
                 return;
             }
 
             if (passwordBox.Text.Length == 0) 
             {
-                MessageBox.Show("Ошибка. Длина пароля не может быть 0")
+                MessageBox.Show("Ошибка. Длина пароля не может быть 0");
                 return;
             }
 
             if (ageBox.Text.Length == 0) 
             {
-                MessageBox.Show("Ошибка. Длина возраста не может быть 0")
+                MessageBox.Show("Ошибка. Длина возраста не может быть 0");
                 return;
             }
 
             if (CountrySelectComboBox.SelectedItem == null) 
             {
-                MessageBox.Show("Ошибка. Выберите страну проживания")
+                MessageBox.Show("Ошибка. Выберите страну проживания");
                 return;
             }
 

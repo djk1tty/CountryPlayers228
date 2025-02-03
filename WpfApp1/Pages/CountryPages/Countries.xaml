@@ -17,6 +17,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить страну" HorizontalAlignment="Left" Margin="118,427,0,0" VerticalAlignment="Top" Height="23" Width="79" Click="ButtonAddCountries"/>
-        <Button Content="Удалить страну" HorizontalAlignment="Left" Margin="631,417,0,0" VerticalAlignment="Top" Height="23" Width="75" Click="ButtonDeleteCountries"/>
+        <Button Content="Удалить страну" HorizontalAlignment="Left" Margin="631,417,0,10" Width="75" Click="ButtonDeleteCountries"/>
     </Grid>
 </Page>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Pages.PlayerPages;
 using WpfApp1.PlayersModel;
+using WpfApp1.Repositories;
 
 namespace WpfApp1.Pages.CountryPages
 {
@@ -23,11 +24,13 @@ namespace WpfApp1.Pages.CountryPages
     public partial class Countries : Page
     {
         private PlayersEntities DbConnection;
+        private CountriesRepositories CountriesRepositories;
         public Countries()
         {
             InitializeComponent();
             FillGridCountryInformation();
             EventPagesAggregator.GridPlayerInfromationDataUpdated += FillGridCountryInformation;
+            CountriesRepositories = new CountriesRepositories();
         }
         public void FillGridCountryInformation()
         {
@@ -41,12 +44,20 @@ namespace WpfApp1.Pages.CountryPages
 
         private void ButtonDeleteCountries(object sender, RoutedEventArgs e)
         {
-            DataStorage.CurrentCountry = (Country)GridCountryInfromation.SelectedItem;
-            countriesRepositories.DeleteCountryFromDb(DataStorage.CurrentCountry.Id);
+            if (GridCountryInfromation.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите страну для удаления");
+                return;
+            }
+            else
+            {
+                DataStorage.CurrentCountry = (Country)GridCountryInfromation.SelectedItem;
+                CountriesRepositories.RemoveCountryFromDb(DataStorage.CurrentCountry.Id);
 
-            FillGridPlayerInformation();
+                FillGridCountryInformation();
 
-            DataStorage.CurrentCountry = null;
+                DataStorage.CurrentCountry = null;
+            }
         }
 
     }

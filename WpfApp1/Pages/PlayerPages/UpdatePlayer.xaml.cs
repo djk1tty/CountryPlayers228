@@ -62,9 +62,9 @@ namespace WpfApp1.Pages.PlayerPages
                 return;
             }
 
-            else if(((Country)(ComboBoxPlayerCountry).SelectedItem = null))
+            else if(ComboBoxPlayerCountry.SelectedItem == null)
             {
-                MessageBox.Show("Ошибка. Выберите страну")
+                MessageBox.Show("Ошибка. Выберите страну");
                 return;
             }
             try

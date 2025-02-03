@@ -38,7 +38,7 @@ namespace WpfApp1.Pages.CountryPages
         {
             if (TextBoxAddCountry.Text.Length == 0)
             {
-                MessageBox.Show("Ошибка.Длина названия страны не может быть 0")
+                MessageBox.Show("Ошибка.Длина названия страны не может быть 0");
                 return;
             }
             countriesRepository.AddNewCountryToDb(

@@ -47,7 +47,7 @@ namespace WpfApp1.Pages.PlayerPages
             DataStorage.CurrentPlayer = (Player)GridPlayerInfromation.SelectedItem;
             if(DataStorage.CurrentPlayer == null)
             {
-                MessageBox.Show("Ошибкаю Выберите игрока для удаления")
+                MessageBox.Show("Ошибкаю Выберите игрока для удаления");
                 return;
             }
             playersRepository.DeletePlayerFromDb(DataStorage.CurrentPlayer.Id);
