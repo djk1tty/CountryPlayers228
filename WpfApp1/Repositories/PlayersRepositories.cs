@@ -35,6 +35,11 @@ namespace WpfApp1.Repositories
                 CountryId = countryID,
                 Age = age,
             };
+            var country = dbConnection.Countries.FirstOrDefault(c => c.Id == player.CountryId);
+            if (country != null)
+            {
+                country.PlayerCount++;
+            }
             dbConnection.Players.Add(player);
             dbConnection.SaveChanges();
         }
@@ -42,8 +47,14 @@ namespace WpfApp1.Repositories
         public void DeletePlayerFromDb(long id)
         {
             var player = dbConnection.Players.Find(id);
+            var country = dbConnection.Countries.FirstOrDefault(c => c.Id == player.CountryId);
+            if (country != null)
+            {
+                country.PlayerCount--;
+            }
             dbConnection.Players.Remove(player);
             dbConnection.SaveChanges();
+
         }
         public void UpdatePlayerInDb(long id, string newName, string newPassword, int newAge, long countryID)
         {

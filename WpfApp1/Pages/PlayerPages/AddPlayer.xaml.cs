@@ -28,6 +28,7 @@ namespace WpfApp1.Pages.PlayerPages
         private PlayersRepositories playerRepository;
         private CountriesRepositories countriesRepository;
         private PlayersEntities dbConnection;
+        private Player playerCountry;
 
         public AddPlayer()
         {
@@ -36,6 +37,7 @@ namespace WpfApp1.Pages.PlayerPages
             playerRepository = new PlayersRepositories();
             countriesRepository = new CountriesRepositories();
             dbConnection = new PlayersEntities();
+            playerCountry = new Player();
 
             CountrySelectComboBox.ItemsSource = countriesRepository.GetAllCountries();
             CountrySelectComboBox.DisplayMemberPath = "CountryName";
@@ -73,24 +75,15 @@ namespace WpfApp1.Pages.PlayerPages
                 return;     
             }
 
-            var countryInDb = dbConnection.Countries.Find(CountrySelectComboBox.SelectedIndex);
-            countryInDb.PlayerCount++;
-            dbConnection.Entry(countryInDb).State = EntityState.Modified;
-            if(countryInDb == null)
-            {
-                MessageBox.Show("Ошибка. Страна не выбрана.");
-                return;
-            }
-
             try
             {
-            playerRepository.AddNewPlayerToDb(
-            nameBox.Text,
-            loginBox.Text,
-            passwordBox.Text,
-            int.Parse(ageBox.Text),
-            ((Country)CountrySelectComboBox.SelectedItem).Id);
-            MessageBox.Show("Игрок добавлен!");
+                playerRepository.AddNewPlayerToDb(
+                nameBox.Text,
+                loginBox.Text,
+                passwordBox.Text,
+                int.Parse(ageBox.Text),
+                ((Country)CountrySelectComboBox.SelectedItem).Id);
+                MessageBox.Show("Игрок добавлен!");
             }
             catch(Exception ex)
             {
