@@ -41,8 +41,21 @@ namespace WpfApp1.Pages.CountryPages
                 MessageBox.Show("Ошибка.Длина названия страны не может быть 0");
                 return;
             }
-            countriesRepository.AddNewCountryToDb(
-                TextBoxAddCountry.Text);
+
+            if (dbConnection.Countries.Any(c => c.CountryName == TextBoxAddCountry.Text))
+            {
+                MessageBox.Show("Невозожно добавить страну с существующим названием");
+                return;
+            }
+            try
+            {
+            countriesRepository.AddNewCountryToDb(TextBoxAddCountry.Text);
+            MessageBox.Show("Страна успешно создана!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось создать страну");
+            }
             EventPagesAggregator.NotifyGridPlayerInfromationDataUpdated();
         }
 

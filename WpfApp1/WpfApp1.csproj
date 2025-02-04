@@ -188,8 +188,8 @@
   <ItemGroup>
     <Content Include="PlayersModel\PlayerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PlayerModel.Context.cs</LastGenOutput>
       <DependentUpon>PlayerModel.edmx</DependentUpon>
+      <LastGenOutput>PlayerModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="PlayersModel\PlayerModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

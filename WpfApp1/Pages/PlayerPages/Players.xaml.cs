@@ -53,7 +53,6 @@ namespace WpfApp1.Pages.PlayerPages
             }
             try
             {
-                
                 playersRepository.DeletePlayerFromDb(DataStorage.CurrentPlayer.Id);
                 MessageBox.Show("Игрок был удален");
             }

@@ -52,16 +52,27 @@ namespace WpfApp1.Pages.CountryPages
                 MessageBox.Show("Выберите страну для удаления");
                 return;
             }
+            if (DataStorage.CurrentCountry.PlayerCount > 0)
+            {
+                MessageBox.Show("Невозможно удалить страну, в которой есть игроки");
+                return;
+            }
             else
             {
-               
-                CountriesRepositories.RemoveCountryFromDb(DataStorage.CurrentCountry.Id);
-
+                try
+                {
+                    CountriesRepositories.RemoveCountryFromDb(DataStorage.CurrentCountry.Id);
+                    DataStorage.CurrentCountry = null;
+                    MessageBox.Show("Страна успешно удалена!");
+                }
+                catch (Exception ex) 
+                { 
+                    MessageBox.Show("Не удалось удалить страну"); 
+                }
                 FillGridCountryInformation();
 
-                DataStorage.CurrentCountry = null;
-                MessageBox.Show("Страна успешно удалена!");
             }
+
         }
 
         private void ButtonGoBack(object sender, RoutedEventArgs e)
