@@ -76,5 +76,16 @@ namespace WpfApp1.Pages.PlayerPages
         {
             NavigationService.GoBack();
         }
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchPharse = SearchTextBox.Text;
+            if (searchPharse.Length == 0)
+            {
+                return;
+            }
+            var data = Connect.DbConnection.Players.Where(item => item.Name.Contains(searchPharse)).ToList();
+            this.GridPlayerInfromation.ItemsSource = null;
+            this.GridPlayerInfromation.ItemsSource = data;
+        }
     }
 }
