@@ -37,13 +37,6 @@ namespace WpfApp1.Pages.PlayerPages
             ComboBoxPlayerCountry.ItemsSource = countriesRepositories.GetAllCountries();
             ComboBoxPlayerCountry.DisplayMemberPath = "CountryName";
         }
-
-        private void PlayerLoginComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            TextBoxName.Text = ((Player)PlayerIdComboBox.SelectedItem).Name;
-            TextBoxPassword.Text = ((Player)PlayerIdComboBox.SelectedItem).Password;
-            TextBoxAge.Text = ((Player)PlayerIdComboBox.SelectedItem).Age.ToString();
-        }
         private void ButtonUpdate(object sender, RoutedEventArgs e)
         {
             playerRepositories.UpdatePlayerInDb(
